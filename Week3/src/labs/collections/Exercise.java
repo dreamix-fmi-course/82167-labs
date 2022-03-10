@@ -1,7 +1,12 @@
 package labs.collections;
 
+import labs.collections.entity.Leg;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Exercise {
 
@@ -40,11 +45,24 @@ public class Exercise {
     }
 
     // T6)?? Write a Java program to count the number of key-value (size) mappings in a map.
-    
+    public int getMapSize(Map<?, ?> map) {
+        return map.size();
+    }
 
     // T7) Write the following structure against aircraft tail number associate
     // list of leg information (fromAirport, toAirport, date).
     // Fill test information
     // Extract legs inside list/set that have from/to airport for a specific airport
     // (Example: All legs for airport LBSF)
+    public Collection<Leg> getFrom(Collection<Leg> legs, String from) {
+        return legs.stream()
+            .filter(leg -> leg.getFromAirport().equals(from))
+            .collect(Collectors.toSet());
+    }
+
+    public Collection<Leg> getTo(Collection<Leg> legs, String to) {
+        return legs.stream()
+            .filter(leg -> leg.getFromAirport().equals(to))
+            .collect(Collectors.toSet());
+    }
 }

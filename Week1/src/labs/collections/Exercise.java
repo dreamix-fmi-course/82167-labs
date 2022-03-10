@@ -21,14 +21,26 @@ public class Exercise {
     }
 
     // T3) Write a method to search an element in a list.
+    public <T> boolean contains(List<T> list, T element) {
+        return list.contains(element);
+    }
 
     // T4) Write a method to sort a given array list. (list of String/Integer/Dog).
     // Implement Dog class with attribute breed and weight, sort the array by weight property.
     // Tip: implement the task with Comparator and Comparable
+    public <T extends Comparable<T>> List<T> sort(List<T> list) {
+        return list.stream()
+            .sorted()
+            .toList();
+    }
 
     // T5) Write a method to replace the second element of a ArrayList with the specified element.
+    public <T> void changeSecond(List<T> list, T newElement) {
+        list.set(1, newElement);
+    }
 
     // T6)?? Write a Java program to count the number of key-value (size) mappings in a map.
+    
 
     // T7) Write the following structure against aircraft tail number associate
     // list of leg information (fromAirport, toAirport, date).
